@@ -17,7 +17,7 @@ class Main {
         left: "1cm",
         right: "1cm"
       },
-      path: 'output.pdf',
+      // path: 'output.pdf',
       displayHeaderFooter: true,
       headerTemplate: '<div></div>',
       footerTemplate: '<div></div>',
