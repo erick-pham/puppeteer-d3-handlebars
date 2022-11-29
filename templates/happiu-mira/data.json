@@ -1,0 +1,86 @@
+{
+  "preHappiU": 40,
+  "postHappiU": 80,
+  "insightMessages": [
+    {
+      "insightMessage": "It is possible that you may have under-declared your savings for retirement. If so, please revisit the questions to get a HappiU that reflects your true circumstances.",
+      "priority": 19,
+      "type": "Assess"
+    },
+    {
+      "insightMessage": "It is possible that you may have under-declared your savings for your property goal. If so, please revisit the questions to get a HappiU that reflects your true circumstances.",
+      "priority": 31,
+      "type": "Recommend"
+    },
+    {
+      "insightMessage": "Deferring the purchase of your property will help you earn some runway that enables you to adopt a high risk - high return approach. This could mean sufficient funds to achieve your other goals after buying your property.",
+      "priority": 32,
+      "type": "Recommend"
+    },
+    {
+      "insightMessage": "You have a moderate HappiU because you have a significant gap in your child's education goal. You run the risk of not being able to fulfill this goal or fulfilling it in the expense of your other goals.",
+      "priority": 35,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "You have a short runway to your child's education goal, so you don't have sufficient time to invest and accumulate wealth.",
+      "priority": 39,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "It is possible that you may have under-declared your savings for your child's education goal. If so, please revisit the questions to get a HappiU that reflects your true circumstances.",
+      "priority": 42,
+      "type": "Recommend"
+    },
+    {
+      "insightMessage": "You have a moderate HappiU because you have a significant gap in your income protection need. It is likely that your wealth will not be sufficient to cover your dependents' expenses after you.",
+      "priority": 44,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "It is possible that you may have under-declared your current income protection coverage. If so, please revisit the questions to get a HappiU that reflects your true circumstances.",
+      "priority": 47,
+      "type": "Recommend"
+    },
+    {
+      "insightMessage": "Your current income protection coverage is less than your annual income. This means that your death payout will only sustain your dependents for less than a year.",
+      "priority": 48,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "You have a moderate HappiU because you have a significant gap in your critical illness need. It is likely that your wealth will not be sufficient to cover your dependents' expenses after you.",
+      "priority": 51,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "It is possible that you may have under-declared your current critical illness coverage. If so, please revisit the questions to get a HappiU that reflects your true circumstances.",
+      "priority": 54,
+      "type": "Recommend"
+    },
+    {
+      "insightMessage": "Your current critical illness coverage is less than your annual income. This means that your critical illness payout will only be able to support your living expenses for less than a year.",
+      "priority": 55,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "Against all odds, if you should fall critically ill at age 28, your net wealth forecast of $147598 will not be sufficient for a comfortable recovery.",
+      "priority": 56,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "You do not have significant assets now. So, you miss the opportunity of them appreciating over time to help you realize your financial needs and aspirations.",
+      "priority": 57,
+      "type": "Explain"
+    },
+    {
+      "insightMessage": "You spend 60% of your income, so your HappiU can potentially be higher if you try to reduce your spending and invest a proportion of your savings in income-generating assets.",
+      "priority": 59,
+      "type": "Recommend"
+    },
+    {
+      "insightMessage": "We notice that you have not declared any investment assets. If you have any, please revisit the questions to get a more accurate HappiU.",
+      "priority": 62,
+      "type": "Recommend"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0px;
+    }
+
+    #header,
+    #footer {
+      padding: 0 !important;
+    }
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .border-header {
+      border-top: 10px solid #f07662;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .footer {
+      width: 95%;
+      margin-left: 25px;
+      margin-bottom: 15px;
+    }
+
+    .footer-main {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      margin-right: 25px;
+      margin-bottom: 15px;
+    }
+
+    .footer-text-secondary {
+      color: #00004d;
+      font-size: 10px;
+      width: 15%;
+      margin: 5px;
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <footer class="footer-main" style="justify-content: flex-end;">
+    <div class="footer-text-secondary">
+      <span class="pageNumber"></span> of <span class="totalPages"></span></span>
+    </div>
+  </footer>
+</body>
+
+</html>

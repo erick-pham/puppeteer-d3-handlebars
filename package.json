@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run make && node  ./app.js --prod"
+    "start": "node  ./app.js --prod"
   },
   "dependencies": {
+    "express": "^4.18.2",
     "handlebars": "^4.7.7",
-    "lodash": "^4.17.21",
-    "puppeteer": "^15.5.0"
+    "puppeteer": "^19.3.0"
   }
 }
