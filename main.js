@@ -3,12 +3,13 @@ const path = require("path");
 const handlebars = require("handlebars");
 const puppeteer = require('puppeteer');
 class Main {
-  constructor(templateName, options, width) {
-    this.rootFolder = templateName.split('/').slice(0, -1).join('/')
+  constructor(templateName, data, options, ) {
+    this.data = data;
     this.compiledHTML = null;
     this.handlebars = handlebars;
     this.templateName = templateName;
-    this.options = options ? options : {
+    this.options = {
+      ...options,
       format: 'A4',
       preferCSSPageSize: true,
       printBackground: true,
@@ -23,6 +24,10 @@ class Main {
       headerTemplate: '<div></div>',
       footerTemplate: '<div></div>',
     }
+
+    this.registerHelper();
+    this.registerStyle();
+    this.compile(this.data);
   }
 
   registerHelper() {
@@ -37,14 +42,20 @@ class Main {
   compile(data) {
     const templateHtml = fs.readFileSync(path.join(process.cwd(), `/templates/${this.templateName}/hbs/content.hbs`), 'utf8');
     this.compiledHTML = this.handlebars.compile(templateHtml)(data);
-  }
 
-  buildHeaderAndFooter() {
     if (this.options.displayHeaderFooter) {
       const headerTemplate = fs.readFileSync(path.join(process.cwd(), `/templates/${this.templateName}/hbs/header.hbs`), 'utf8');
       const footerTemplate = fs.readFileSync(path.join(process.cwd(), `/templates/${this.templateName}/hbs/footer.hbs`), 'utf8');
-      this.options.headerTemplate = headerTemplate;
-      this.options.footerTemplate = footerTemplate;
+      this.options.headerTemplate = this.handlebars.compile(headerTemplate)(data);;
+      this.options.footerTemplate = this.handlebars.compile(footerTemplate)(data);;
+    }
+  }
+
+  toHTML() {
+    return {
+      compiledHTML: this.compiledHTML,
+      headerTemplate: this.options.headerTemplate,
+      footerTemplate: this.options.footerTemplate
     }
   }
 

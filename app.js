@@ -53,21 +53,18 @@ app.post('/api/report', async (req, res) => {
 
     if (req.body.getSampleData === true) {
       res.setHeader('Content-Type', 'application/json');
-      return res.send(
-        require(path.join(
-          process.cwd(),
-          `/templates/${templateName}/data.json`
-        ))
-      );
+      return res.send(require(path.join(process.cwd(), `/templates/${templateName}/data.json`)));
+    }
+
+    if (!fs.existsSync(path.join(process.cwd(), `/templates/${templateName}/data.json`))) {
+      return res.status(400).send({
+        message: "The template not found.",
+      });
     }
 
     let start = new Date();
-    const main = new Main('happiu-mira');
-    main.registerHelper();
-    main.registerStyle();
-    main.buildHeaderAndFooter();
-    main.compile(require('./templates/happiu-mira/data.json'));
-    const bufferData = await main.toPDF(context, (responseType = 'buffer'));
+    const main = new Main(templateName, req.body.data);
+    const bufferData = await main.toPDF(context);
     let end = new Date();
 
     console.log('PDF generated in: ', (end - start) / 1000, 'ms');
@@ -103,14 +100,15 @@ if (process.env.NODE_ENV === 'production') {
   app.get('/live', async (req, res) => {
     try {
       const templateName = 'happiu-mira';
-      const main = new Main(templateName);
-      main.registerHelper();
-      main.registerStyle();
-      main.buildHeaderAndFooter();
-      main.compile(require(`./templates/${templateName}/data.json`));
+      const data = require(`./templates/${templateName}/data.json`);
+      const main = new Main(templateName, data);
+
       const bufferData = await main.toPDF(context, (responseType = 'buffer'));
 
       fs.writeFileSync(path.join(__dirname, '/.temp/temp.pdf'), bufferData);
+      // fs.writeFileSync(path.join(__dirname, '/.temp/compiledHTML.html'), main.toHTML().compiledHTML.toString());
+      // fs.writeFileSync(path.join(__dirname, '/.temp/headerTemplate.html'), main.toHTML().headerTemplate.toString());
+      // fs.writeFileSync(path.join(__dirname, '/.temp/footerTemplate.html'), main.toHTML().footerTemplate.toString());;
 
       res.sendFile(path.join(__dirname, '/views/index.html'));
     } catch (error) {
