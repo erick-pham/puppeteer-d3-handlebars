@@ -11,9 +11,10 @@ class Main {
     this.options = options ? options : {
       format: 'A4',
       preferCSSPageSize: true,
+      printBackground: true,
       margin: {
-        top: "3.5cm",
-        bottom: "2.5cm",
+        top: "3cm",
+        bottom: "2cm",
         left: "1cm",
         right: "1cm"
       },
@@ -66,7 +67,7 @@ class Main {
       waitUntil: "networkidle0"
     });
     await page.setContent(this.compiledHTML);
-    await page.emulateMediaType("screen");
+    await page.emulateMediaType("print");
 
     const pdf = await page.pdf(this.options);
     await page.close();
